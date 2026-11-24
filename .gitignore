@@ -1,0 +1,11 @@
+# Maven
+target/
+# Eclipse (cada uno genera los suyos al importar)
+.settings/
+.classpath
+.project
+# Credenciales de la base de datos (nunca se suben)
+config.properties
+# Sistema operativo
+Thumbs.db
+.DS_Store
