@@ -1,16 +1,22 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class LoginPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private JLabel lblTituloSombra;
+	private JLabel lblTitulo;
 	private JLabel lblUsuario;
 	private JTextField txtUsuario;
 	private JLabel lblContrasena;
@@ -62,14 +68,24 @@ public class LoginPanel extends JPanel {
 		EstilosVista.estilizarBoton(btnRegistrarse);
 		add(btnRegistrarse);
 
-		fondo = new JLabel(
-				new ImageIcon(getClass().getResource("/img/imagenesPaneles/fondo_login_registro_1500x800.png")));
+		lblTituloSombra = new JLabel("STREET FIGHTER", SwingConstants.CENTER);
+		lblTituloSombra.setFont(new Font("Impact", Font.PLAIN, 90));
+		lblTituloSombra.setForeground(Color.BLACK);
+		lblTituloSombra.setBounds(5, 45, EstilosVista.ANCHO_VENTANA, 110);
+
+		lblTitulo = new JLabel("STREET FIGHTER", SwingConstants.CENTER);
+		lblTitulo.setFont(new Font("Impact", Font.PLAIN, 90));
+		lblTitulo.setForeground(new Color(255, 170, 0));
+		lblTitulo.setBounds(0, 40, EstilosVista.ANCHO_VENTANA, 110);
+
+		add(lblTitulo);
+		add(lblTituloSombra);
+
+		fondo = new JLabel(new ImageIcon(getClass().getResource("/gif/general/menu_fondo.gif")));
 		fondo.setBounds(0, 0, EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
 		add(fondo);
 
 	}
-
-
 
 	public JTextField getTxtUsuario() {
 		return txtUsuario;
