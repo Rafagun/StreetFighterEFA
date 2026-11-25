@@ -14,6 +14,7 @@ public class VentanaPrincipal extends JFrame {
 	private MenuPanel menuPanel;
 	private LoginPanel loginPanel;
 	private RegistroPanel registroPanel;
+	private DescripcionPanel descripcionPanel;
 
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,7 +23,7 @@ public class VentanaPrincipal extends JFrame {
 		setBounds(100, 15, 1500, 800);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(1, 1, 1, 1));
 		contentPane.setLayout(new CardLayout(0, 0));
 		setContentPane(contentPane);
 
@@ -34,6 +35,11 @@ public class VentanaPrincipal extends JFrame {
 
 		registroPanel = new RegistroPanel();
 		contentPane.add(registroPanel, "REGISTRO");
+		
+		descripcionPanel = new DescripcionPanel();
+		contentPane.add(descripcionPanel, "DESCRIPCION");
+		
+		cambiarPantalla("DESCRIPCION");
 
 	}
 
