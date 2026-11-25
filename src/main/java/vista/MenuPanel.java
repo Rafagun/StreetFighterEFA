@@ -2,8 +2,6 @@ package vista;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,16 +12,9 @@ public class MenuPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String CMD_HISTORIA = "HISTORIA";
-	public static final String CMD_ENFRENTAMIENTO = "ENFRENTAMIENTO";
-	public static final String CMD_PERSONAJES = "PERSONAJES";
-	public static final String CMD_AYUDA = "AYUDA";
-
-	private static final Color AMARILLO = new Color(255, 192, 0);
-	private static final Color MELOCOTON = new Color(248, 203, 173);
-
 	private static final int X_BOTONES = 100;
-	private static final int ANCHO_BOTONES = 540;
+	private static final int Y_MODOS = 150;
+	private static final int Y_OPCIONES = 510;
 
 	private JButton btnHistoria;
 	private JButton btnEnfrentamiento;
@@ -32,51 +23,49 @@ public class MenuPanel extends JPanel {
 	private JLabel lblLogo;
 
 	public MenuPanel() {
-		setSize(1500, 800);
+		setSize(EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
 		setLayout(null);
 
-		btnHistoria = crearBoton("Modo HISTORIA", CMD_HISTORIA, KeyEvent.VK_H, AMARILLO, 32);
-		btnHistoria.setBounds(X_BOTONES, 150, ANCHO_BOTONES, 95);
+		int ancho = EstilosVista.ANCHO_BOTON_MENU;
+		int altoGrande = EstilosVista.ALTO_BOTON_GRANDE;
+		int altoPequeno = EstilosVista.ALTO_BOTON_PEQUENO;
+		int separacion = EstilosVista.SEPARACION_BOTONES;
+
+		btnHistoria = crearBoton("Modo HISTORIA", EstilosVista.AMARILLO, EstilosVista.FUENTE_BOTON_GRANDE);
+		btnHistoria.setBounds(X_BOTONES, Y_MODOS, ancho, altoGrande);
 		add(btnHistoria);
 
-		btnEnfrentamiento = crearBoton("ENFRENTAMIENTO", CMD_ENFRENTAMIENTO, KeyEvent.VK_E, AMARILLO, 32);
-		btnEnfrentamiento.setBounds(X_BOTONES, 265, ANCHO_BOTONES, 95);
+		btnEnfrentamiento = crearBoton("ENFRENTAMIENTO", EstilosVista.AMARILLO,
+				EstilosVista.FUENTE_BOTON_GRANDE);
+		btnEnfrentamiento.setBounds(X_BOTONES, Y_MODOS + altoGrande + separacion, ancho, altoGrande);
 		add(btnEnfrentamiento);
 
-		btnPersonajes = crearBoton("Descripción de Personajes", CMD_PERSONAJES, KeyEvent.VK_D, MELOCOTON, 24);
-		btnPersonajes.setBounds(X_BOTONES, 510, ANCHO_BOTONES, 70);
+		btnPersonajes = crearBoton("Descripción de Personajes", EstilosVista.MELOCOTON,
+				EstilosVista.FUENTE_BOTON_PEQUENO);
+		btnPersonajes.setBounds(X_BOTONES, Y_OPCIONES, ancho, altoPequeno);
 		add(btnPersonajes);
 
-		btnAyuda = crearBoton("Información o Ayuda", CMD_AYUDA, KeyEvent.VK_I, MELOCOTON, 24);
-		btnAyuda.setBounds(X_BOTONES, 600, ANCHO_BOTONES, 70);
+		btnAyuda = crearBoton("Información o Ayuda", EstilosVista.MELOCOTON,
+				EstilosVista.FUENTE_BOTON_PEQUENO);
+		btnAyuda.setBounds(X_BOTONES, Y_OPCIONES + altoPequeno + separacion, ancho, altoPequeno);
 		add(btnAyuda);
 
 		lblLogo = new JLabel("STREET FIGHTER");
-		lblLogo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 72));
-		lblLogo.setForeground(AMARILLO);
+		lblLogo.setFont(EstilosVista.FUENTE_LOGO);
+		lblLogo.setForeground(EstilosVista.AMARILLO);
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogo.setBounds(730, 120, 700, 480);
 		add(lblLogo);
 	}
 
-	private JButton crearBoton(String texto, String comando, int teclaAtajo, Color fondo, int tamanioLetra) {
+	private JButton crearBoton(String texto, Color fondo, Font fuente) {
 		JButton boton = new JButton(texto);
-		boton.setActionCommand(comando);
-		boton.setMnemonic(teclaAtajo);
-		boton.setFont(new Font("Tahoma", Font.BOLD, tamanioLetra));
+		boton.setFont(fuente);
 		boton.setBackground(fondo);
-		boton.setForeground(Color.BLACK);
+		boton.setForeground(EstilosVista.NEGRO);
 		boton.setHorizontalAlignment(SwingConstants.LEFT);
-		boton.putClientProperty("FlatLaf.style",
-				"arc: 0; borderWidth: 2; borderColor: #000000; focusedBorderColor: #FFFFFF; focusWidth: 0; innerFocusWidth: 2");
+		boton.putClientProperty("FlatLaf.style", EstilosVista.ESTILO_BOTON);
 		return boton;
-	}
-
-	public void addMenuListener(ActionListener listener) {
-		btnHistoria.addActionListener(listener);
-		btnEnfrentamiento.addActionListener(listener);
-		btnPersonajes.addActionListener(listener);
-		btnAyuda.addActionListener(listener);
 	}
 
 }
