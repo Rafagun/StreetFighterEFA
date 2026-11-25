@@ -44,7 +44,7 @@ public class BDDConnection {
 		Connection connection = null;
 		Properties properties = new Properties();
 		try {
-			properties.load(new FileReader("src/main/java/resources/db.properties"));
+			properties.load(new FileReader("src/main/resources/db.properties"));
 			String driver = properties.getProperty("database.driver");
 			String url = properties.getProperty("database.url");
 			String usuario = properties.getProperty("database.user");
