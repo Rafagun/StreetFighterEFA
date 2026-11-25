@@ -54,12 +54,12 @@ public class LoginPanel extends JPanel {
 
 		btnEntrar = new JButton("Entrar");
 		btnEntrar.setBounds(550, 600, 190, 45);
-		estilizarBoton(btnEntrar);
+		EstilosVista.estilizarBoton(btnEntrar);
 		add(btnEntrar);
 
 		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.setBounds(760, 600, 190, 45);
-		estilizarBoton(btnRegistrarse);
+		EstilosVista.estilizarBoton(btnRegistrarse);
 		add(btnRegistrarse);
 
 		fondo = new JLabel(
@@ -69,13 +69,7 @@ public class LoginPanel extends JPanel {
 
 	}
 
-	private void estilizarBoton(JButton boton) {
-		boton.setFont(EstilosVista.FUENTE_TEXTO_NEGRITA);
-		boton.setBackground(EstilosVista.NARANJA);
-		boton.setForeground(EstilosVista.NEGRO);
-		boton.setFocusPainted(false);
-		boton.putClientProperty("JButton.buttonType", "roundRect");
-	}
+
 
 	public JTextField getTxtUsuario() {
 		return txtUsuario;

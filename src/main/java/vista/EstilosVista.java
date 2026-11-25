@@ -3,6 +3,8 @@ package vista;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.JButton;
+
 public class EstilosVista {
 
 	public static final Color AMARILLO = new Color(255, 192, 0);
@@ -37,4 +39,13 @@ public class EstilosVista {
 	public static final String ESTILO_BOTON = "arc: 0; borderWidth: 2; borderColor: #000000; focusedBorderColor: #FFFFFF; focusWidth: 0; innerFocusWidth: 2";
 	public static final String ESTILO_BOTON_COMBATE = "arc: 15; borderWidth: 2; borderColor: #1F3864; focusedBorderColor: #FFFFFF; focusWidth: 0; innerFocusWidth: 2";
 
+	
+	
+	public static void estilizarBoton(JButton boton) {
+		boton.setFont(EstilosVista.FUENTE_TEXTO_NEGRITA);
+		boton.setBackground(EstilosVista.NARANJA);
+		boton.setForeground(EstilosVista.NEGRO);
+		boton.setFocusPainted(false);
+		boton.putClientProperty("JButton.buttonType", "roundRect");
+	}
 }

@@ -12,7 +12,7 @@ public class PrincipalApp {
 		try {
 			VentanaPrincipal frame = new VentanaPrincipal();
 			frame.setVisible(true);
-			System.out.println("hola");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
