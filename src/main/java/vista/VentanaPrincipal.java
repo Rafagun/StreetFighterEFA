@@ -11,6 +11,8 @@ public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private MenuPanel menuPanel;
+	
 
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,6 +23,8 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 		setContentPane(contentPane);
 		
+		menuPanel = new MenuPanel();
+		contentPane.add(menuPanel);
 
 	}
 
