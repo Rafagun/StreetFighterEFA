@@ -1,16 +1,21 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class LoginPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private JLabel lblTitulo;
 	private JLabel lblUsuario;
 	private JTextField txtUsuario;
 	private JLabel lblContrasena;
@@ -54,27 +59,23 @@ public class LoginPanel extends JPanel {
 
 		btnEntrar = new JButton("Entrar");
 		btnEntrar.setBounds(550, 600, 190, 45);
-		estilizarBoton(btnEntrar);
+		EstilosVista.estilizarBoton(btnEntrar);
 		add(btnEntrar);
 
 		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.setBounds(760, 600, 190, 45);
-		estilizarBoton(btnRegistrarse);
+		EstilosVista.estilizarBoton(btnRegistrarse);
 		add(btnRegistrarse);
 
-		fondo = new JLabel(
-				new ImageIcon(getClass().getResource("/img/imagenesPaneles/fondo_login_registro_1500x800.png")));
+		lblTitulo = new JLabel(new ImageIcon(getClass().getResource("/img/imagenesPaneles/logo.png")));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(0, 80, EstilosVista.ANCHO_VENTANA, 264);
+		add(lblTitulo);
+
+		fondo = new JLabel(new ImageIcon(getClass().getResource("/gif/general/menu_fondo.gif")));
 		fondo.setBounds(0, 0, EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
 		add(fondo);
 
-	}
-
-	private void estilizarBoton(JButton boton) {
-		boton.setFont(EstilosVista.FUENTE_TEXTO_NEGRITA);
-		boton.setBackground(EstilosVista.NARANJA);
-		boton.setForeground(EstilosVista.NEGRO);
-		boton.setFocusPainted(false);
-		boton.putClientProperty("JButton.buttonType", "roundRect");
 	}
 
 	public JTextField getTxtUsuario() {
