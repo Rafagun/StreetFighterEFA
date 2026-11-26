@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
+
 public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -15,6 +17,8 @@ public class VentanaPrincipal extends JFrame {
 	private LoginPanel loginPanel;
 	private RegistroPanel registroPanel;
 	private DescripcionPanel descripcionPanel;
+	private CombatePanel combatePanel;
+	private SeleccionPanel seleccionPanel;
 
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,7 +43,13 @@ public class VentanaPrincipal extends JFrame {
 		descripcionPanel = new DescripcionPanel();
 		contentPane.add(descripcionPanel, "DESCRIPCION");
 		
-		cambiarPantalla("DESCRIPCION");
+		combatePanel = new CombatePanel();
+		contentPane.add(combatePanel, "COMBATE");
+		
+		seleccionPanel = new SeleccionPanel();
+		contentPane.add(seleccionPanel, "SELECCION");
+		
+		cambiarPantalla("SELECCION");
 
 	}
 

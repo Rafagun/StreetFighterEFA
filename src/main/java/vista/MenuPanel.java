@@ -59,7 +59,7 @@ public class MenuPanel extends JPanel {
 		add(lblLogo);
 		
 		lblFondo = new JLabel();
-		lblFondo.setIcon(new ImageIcon(getClass().getResource("/img/imagenesPaneles/menu_fondos/fondo_ryu_oscuro40.png")));
+		lblFondo.setIcon(new ImageIcon(getClass().getResource("/gif/fondo_ryu_animado.gif")));
 		lblFondo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFondo.setBounds(0, 0, EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
 		add(lblFondo);

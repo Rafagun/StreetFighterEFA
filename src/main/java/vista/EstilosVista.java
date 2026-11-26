@@ -17,6 +17,7 @@ public class EstilosVista {
 	public static final Color NEGRO = Color.BLACK;
 	public static final Color BLANCO = Color.WHITE;
 	public static final Color GRIS_BLOQUEADO = new Color(128, 128, 128);
+	public static final Color VERDE = new Color(40, 140, 70);
 
 	public static final String FAMILIA_FUENTE = "Tahoma";
 	public static final Font FUENTE_LOGO = new Font(FAMILIA_FUENTE, Font.BOLD | Font.ITALIC, 72);
