@@ -3,7 +3,10 @@ package vista;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class EstilosVista {
 
@@ -48,5 +51,16 @@ public class EstilosVista {
 		boton.setForeground(EstilosVista.NEGRO);
 		boton.setFocusPainted(false);
 		boton.putClientProperty("JButton.buttonType", "roundRect");
+	}
+	public static final Color ROJO_OSCURO = new Color(120, 0, 0);
+
+	public static void estilizarError(JLabel etiqueta) {
+		etiqueta.setOpaque(true);
+		etiqueta.setBackground(ROJO_OSCURO);
+		etiqueta.setForeground(Color.WHITE);
+		etiqueta.setFont(FUENTE_TEXTO_NEGRITA);
+		etiqueta.setHorizontalAlignment(SwingConstants.CENTER);
+		etiqueta.setBorder(BorderFactory.createLineBorder(ROJO_ERROR, 2));
+		etiqueta.setVisible(false);
 	}
 }

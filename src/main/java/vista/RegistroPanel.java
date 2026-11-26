@@ -65,9 +65,8 @@ public class RegistroPanel extends JPanel {
 		add(pwdRepetirContrasena);
 
 		lblError = new JLabel("");
-		lblError.setForeground(EstilosVista.ROJO_ERROR);
-		lblError.setFont(EstilosVista.FUENTE_TEXTO);
-		lblError.setBounds(550, 584, 400, 25);
+		lblError.setBounds(550, 555, 400, 35);
+		EstilosVista.estilizarError(lblError);
 		add(lblError);
 
 		btnCrearCuenta = new JButton("Crear cuenta");
