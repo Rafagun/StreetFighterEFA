@@ -12,6 +12,7 @@ public class PrincipalApp {
 		try {
 			VentanaPrincipal frame = new VentanaPrincipal();
 			frame.setVisible(true);
+			frame.cambiarPantalla("ESTADISTICAS");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,16 +1,21 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class RegistroPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private JLabel lblTitulo;
 	private JLabel lblUsuario;
 	private JTextField txtUsuario;
 	private JLabel lblContrasena;
@@ -75,8 +80,12 @@ public class RegistroPanel extends JPanel {
 		EstilosVista.estilizarBoton(btnVolver);
 		add(btnVolver);
 
-		fondo = new JLabel(
-				new ImageIcon(getClass().getResource("/img/imagenesPaneles/fondo_login_registro_1500x800.png")));
+		lblTitulo = new JLabel(new ImageIcon(getClass().getResource("/img/imagenesPaneles/logo.png")));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(0, 80, EstilosVista.ANCHO_VENTANA, 264);
+		add(lblTitulo);
+
+		fondo = new JLabel(new ImageIcon(getClass().getResource("/gif/general/menu_fondo.gif")));
 		fondo.setBounds(0, 0, EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
 		add(fondo);
 	}
