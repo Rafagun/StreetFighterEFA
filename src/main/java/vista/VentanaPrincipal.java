@@ -15,6 +15,7 @@ public class VentanaPrincipal extends JFrame {
 	private LoginPanel loginPanel;
 	private RegistroPanel registroPanel;
 	private DescripcionPanel descripcionPanel;
+	private RutaPanel rutaPanel;
 
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,11 +36,12 @@ public class VentanaPrincipal extends JFrame {
 
 		registroPanel = new RegistroPanel();
 		contentPane.add(registroPanel, "REGISTRO");
-		
+
 		descripcionPanel = new DescripcionPanel();
 		contentPane.add(descripcionPanel, "DESCRIPCION");
-		
-		cambiarPantalla("DESCRIPCION");
+
+		rutaPanel = new RutaPanel();
+		contentPane.add(rutaPanel, "RUTA");
 
 	}
 

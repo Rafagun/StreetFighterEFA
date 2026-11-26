@@ -15,7 +15,6 @@ import javax.swing.SwingConstants;
 public class LoginPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private JLabel lblTituloSombra;
 	private JLabel lblTitulo;
 	private JLabel lblUsuario;
 	private JTextField txtUsuario;
@@ -68,18 +67,10 @@ public class LoginPanel extends JPanel {
 		EstilosVista.estilizarBoton(btnRegistrarse);
 		add(btnRegistrarse);
 
-		lblTituloSombra = new JLabel("STREET FIGHTER", SwingConstants.CENTER);
-		lblTituloSombra.setFont(new Font("Impact", Font.PLAIN, 90));
-		lblTituloSombra.setForeground(Color.BLACK);
-		lblTituloSombra.setBounds(5, 45, EstilosVista.ANCHO_VENTANA, 110);
-
-		lblTitulo = new JLabel("STREET FIGHTER", SwingConstants.CENTER);
-		lblTitulo.setFont(new Font("Impact", Font.PLAIN, 90));
-		lblTitulo.setForeground(new Color(255, 170, 0));
-		lblTitulo.setBounds(0, 40, EstilosVista.ANCHO_VENTANA, 110);
-
+		lblTitulo = new JLabel(new ImageIcon(getClass().getResource("/img/imagenesPaneles/logo.png")));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(0, 80, EstilosVista.ANCHO_VENTANA, 264);
 		add(lblTitulo);
-		add(lblTituloSombra);
 
 		fondo = new JLabel(new ImageIcon(getClass().getResource("/gif/general/menu_fondo.gif")));
 		fondo.setBounds(0, 0, EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
