@@ -3,6 +3,7 @@ package vista;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +22,7 @@ public class MenuPanel extends JPanel {
 	private JButton btnPersonajes;
 	private JButton btnAyuda;
 	private JLabel lblLogo;
+	private JLabel lblFondo;
 
 	public MenuPanel() {
 		setSize(EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
@@ -50,12 +52,17 @@ public class MenuPanel extends JPanel {
 		btnAyuda.setBounds(X_BOTONES, Y_OPCIONES + altoPequeno + separacion, ancho, altoPequeno);
 		add(btnAyuda);
 
-		lblLogo = new JLabel("STREET FIGHTER");
-		lblLogo.setFont(EstilosVista.FUENTE_LOGO);
-		lblLogo.setForeground(EstilosVista.AMARILLO);
+		lblLogo = new JLabel();
+		lblLogo.setIcon(new ImageIcon(getClass().getResource("/img/imagenesPaneles/logo.png")));
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogo.setBounds(730, 120, 700, 480);
+		lblLogo.setBounds(780, 228, 700, 264);
 		add(lblLogo);
+		
+		lblFondo = new JLabel();
+		lblFondo.setIcon(new ImageIcon(getClass().getResource("/img/imagenesPaneles/menu_fondos/fondo_ryu_oscuro40.png")));
+		lblFondo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFondo.setBounds(0, 0, EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
+		add(lblFondo);
 	}
 
 	private JButton crearBoton(String texto, Color fondo, Font fuente) {
