@@ -65,17 +65,17 @@ public class RegistroPanel extends JPanel {
 		add(pwdRepetirContrasena);
 
 		lblError = new JLabel("");
-		lblError.setBounds(550, 555, 400, 35);
+		lblError.setBounds(550, 585, 400, 35);
 		EstilosVista.estilizarError(lblError);
 		add(lblError);
 
 		btnCrearCuenta = new JButton("Crear cuenta");
-		btnCrearCuenta.setBounds(550, 625, 190, 45);
+		btnCrearCuenta.setBounds(550, 654, 190, 45);
 		EstilosVista.estilizarBoton(btnCrearCuenta);
 		add(btnCrearCuenta);
 
-		btnVolver = new JButton("Iniciar sesión");
-		btnVolver.setBounds(760, 625, 190, 45);
+		btnVolver = new JButton("Volver");
+		btnVolver.setBounds(760, 654, 190, 45);
 		EstilosVista.estilizarBoton(btnVolver);
 		add(btnVolver);
 
@@ -93,23 +93,49 @@ public class RegistroPanel extends JPanel {
 		return txtUsuario;
 	}
 
+	public void setTxtUsuario(JTextField txtUsuario) {
+		this.txtUsuario = txtUsuario;
+	}
+
 	public JPasswordField getPwdContrasena() {
 		return pwdContrasena;
+	}
+
+	public void setPwdContrasena(JPasswordField pwdContrasena) {
+		this.pwdContrasena = pwdContrasena;
 	}
 
 	public JPasswordField getPwdRepetirContrasena() {
 		return pwdRepetirContrasena;
 	}
 
+	public void setPwdRepetirContrasena(JPasswordField pwdRepetirContrasena) {
+		this.pwdRepetirContrasena = pwdRepetirContrasena;
+	}
+
 	public JLabel getLblError() {
 		return lblError;
+	}
+
+	public void setLblError(JLabel lblError) {
+		this.lblError = lblError;
 	}
 
 	public JButton getBtnCrearCuenta() {
 		return btnCrearCuenta;
 	}
 
+	public void setBtnCrearCuenta(JButton btnCrearCuenta) {
+		this.btnCrearCuenta = btnCrearCuenta;
+	}
+
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}
+
+	public void setBtnVolver(JButton btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+
+
 }

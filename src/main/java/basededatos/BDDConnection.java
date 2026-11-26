@@ -85,4 +85,25 @@ public class BDDConnection {
 		return null;
 	}
 
+	public void insertarUsuario(Usuario usuario) {
+
+		String sentencia = "INSERT INTO USUARIO ( Nombre, Contrasenia, Total_Victorias, Total_Derrotas)"
+				+ "VALUES(?,?,?,?)";
+		try (PreparedStatement statement = connection.prepareStatement(sentencia)) {
+
+			statement.setString(1, usuario.getNombre());
+			statement.setString(2, usuario.getContrasenia());
+			statement.setInt(3, usuario.getVictorias());
+			statement.setInt(4, usuario.getDerrotas());
+			int filas = statement.executeUpdate();
+
+			System.out.println("Fila insertada :" + filas);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 }
