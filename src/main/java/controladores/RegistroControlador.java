@@ -72,10 +72,9 @@ public class RegistroControlador implements ActionListener {
 				usuario.setContrasenia(contrasenia);
 				usuario.setVictorias(0);
 				usuario.setDerrotas(0);
-				// cuando esté completo lo de añadir luchadores los añado aquí
-
+				// rellenar luchadores
 				this.conexion.insertarUsuario(usuario);
-
+				this.ventana.setUsuario(user);
 				this.ventana.cambiarPantalla("MENU");
 
 			}

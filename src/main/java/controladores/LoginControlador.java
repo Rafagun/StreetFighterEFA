@@ -62,7 +62,8 @@ public class LoginControlador implements ActionListener {
 				return;
 
 			}
-
+			
+			this.ventana.setUsuario(user);
 			this.ventana.cambiarPantalla("MENU");
 
 		}

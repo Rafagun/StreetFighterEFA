@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import modelo.Usuario;
+
 public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -18,6 +20,7 @@ public class VentanaPrincipal extends JFrame {
 	private CombatePanel combatePanel;
 	private SeleccionPanel seleccionPanel;
 	private RutaPanel rutaPanel;
+	private Usuario usuario;
 
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,6 +56,18 @@ public class VentanaPrincipal extends JFrame {
 
 		cambiarPantalla("LOGIN");
 
+	}
+	
+	
+	
+	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public void cambiarPantalla(String nombre) {
