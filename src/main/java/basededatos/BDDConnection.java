@@ -8,8 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
+import modelo.Luchador;
 import modelo.Usuario;
 
 public class BDDConnection {
@@ -18,6 +20,7 @@ public class BDDConnection {
 
 	private BDDConnection() throws Exception {
 		connection = abrirConnection();
+		luchadores = obtenerLuchadores();
 	}
 
 	public Connection getConnection() {
@@ -55,6 +58,28 @@ public class BDDConnection {
 		}
 		return connection;
 	}
+	
+	public ArrayList<Luchador> obtenerLuchadores() {
+		ArrayList<Luchador> luchadores = new ArrayList<Luchador>();
+		String stringSentencia = """
+				SELECT * FROM LUCHADOR
+				""";
+		ResultSet resultSet = null;
+		try (Statement statement = connection.createStatement(); ) {
+			resultSet = statement.executeQuery(stringSentencia);
+			while(resultSet.next()) {
+				Luchador luchador = new Luchador (
+	                    resultSet.getInt("Id_Luchador"),
+	                    resultSet.getString("Nombre"),
+	                    resultSet.getString("Nacionalidad"),
+	                    resultSet.getInt("Edad"),
+	                    resultSet.getInt("Estatura"),
+	                    resultSet.getInt("Peso"),
+	                    resultSet.getInt("Potencia"),
+	                    resultSet.getInt("Velocidad"),
+	                    resultSet.getInt("Fisico"),
+	                    resultSet.getString("Descripcion"));
+				luchadores.add(luchador);
 
 	public Usuario devolverUsuario(String nombre) {
 
@@ -78,6 +103,11 @@ public class BDDConnection {
 			}
 
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return luchadores;
+		
+		
 
 			e.printStackTrace();
 		}
