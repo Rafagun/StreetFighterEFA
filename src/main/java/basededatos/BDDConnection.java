@@ -7,14 +7,19 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
+
+import modelo.Luchador;
 
 public class BDDConnection {
 	private static BDDConnection instance;
 	private Connection connection;
+	private ArrayList<Luchador> luchadores;
 	
 	private BDDConnection () throws Exception {
 		connection = abrirConnection();
+		luchadores = obtenerLuchadores();
 	}
 	
 	
@@ -61,7 +66,8 @@ public class BDDConnection {
 		return connection;
 	}
 	
-	public void pruebaConnection() {
+	public ArrayList<Luchador> obtenerLuchadores() {
+		ArrayList<Luchador> luchadores = new ArrayList<Luchador>();
 		String stringSentencia = """
 				SELECT * FROM LUCHADOR
 				""";
@@ -69,22 +75,24 @@ public class BDDConnection {
 		try (Statement statement = connection.createStatement(); ) {
 			resultSet = statement.executeQuery(stringSentencia);
 			while(resultSet.next()) {
-				System.out.printf("%2d | %-10s | %3s años | %-15s | %3s cm | %3s kg | P:%3d V:%3d F:%3d%n",
+				Luchador luchador = new Luchador (
 	                    resultSet.getInt("Id_Luchador"),
 	                    resultSet.getString("Nombre"),
-	                    resultSet.getObject("Edad"),
 	                    resultSet.getString("Nacionalidad"),
-	                    resultSet.getObject("Estatura"),
-	                    resultSet.getObject("Peso"),
+	                    resultSet.getInt("Edad"),
+	                    resultSet.getInt("Estatura"),
+	                    resultSet.getInt("Peso"),
 	                    resultSet.getInt("Potencia"),
 	                    resultSet.getInt("Velocidad"),
-	                    resultSet.getInt("Fisico"));
-				System.out.println("");
+	                    resultSet.getInt("Fisico"),
+	                    resultSet.getString("Descripcion"));
+				luchadores.add(luchador);
 			}
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
+		return luchadores;
+		
 		
 	}
 }

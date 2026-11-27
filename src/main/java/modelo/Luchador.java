@@ -1,11 +1,11 @@
 package modelo;
 
 public class Luchador {
-
+	private int id_Luchador;
 	private String nombre;
 	private String nacionalidad;
 	private int edad;
-	private double estatura;
+	private int estatura;
 	private int peso;
 	private int potencia;
 	private int velocidad;
@@ -17,9 +17,12 @@ public class Luchador {
 
 	}
 
-	public Luchador(String nombre, String nacionalidad, int edad, double estatura, int peso, int potencia,
-			int velocidad, int fisico, String descripcion, String rutaImagen) {
+	
 
+	public Luchador(int id_Luchador, String nombre, String nacionalidad, int edad, int estatura, int peso,
+			int potencia, int velocidad, int fisico, String descripcion) {
+		super();
+		this.id_Luchador = id_Luchador;
 		this.nombre = nombre;
 		this.nacionalidad = nacionalidad;
 		this.edad = edad;
@@ -29,7 +32,35 @@ public class Luchador {
 		this.velocidad = velocidad;
 		this.fisico = fisico;
 		this.descripcion = descripcion;
+		//Tenemos que añadir luego la rutaimagen
+		//this.rutaImagen
 	}
+
+
+
+	public int getId_Luchador() {
+		return id_Luchador;
+	}
+
+
+
+	public void setId_Luchador(int id_Luchador) {
+		this.id_Luchador = id_Luchador;
+	}
+
+
+
+	public String getRutaImagen() {
+		return rutaImagen;
+	}
+
+
+
+	public void setRutaImagen(String rutaImagen) {
+		this.rutaImagen = rutaImagen;
+	}
+
+
 
 	public String getNombre() {
 		return nombre;
@@ -55,11 +86,11 @@ public class Luchador {
 		this.edad = edad;
 	}
 
-	public double getEstatura() {
+	public int getEstatura() {
 		return estatura;
 	}
 
-	public void setEstatura(double estatura) {
+	public void setEstatura(int estatura) {
 		this.estatura = estatura;
 	}
 
