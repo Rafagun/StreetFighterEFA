@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
+import modelo.Usuario;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -20,11 +20,12 @@ public class VentanaPrincipal extends JFrame {
 	private CombatePanel combatePanel;
 	private SeleccionPanel seleccionPanel;
 	private RutaPanel rutaPanel;
+	private Usuario usuario;
 
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		setTitle("Street Figther 2");
+		setTitle("Street Figther");
 		setBounds(100, 15, 1500, 800);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -43,23 +44,91 @@ public class VentanaPrincipal extends JFrame {
 
 		descripcionPanel = new DescripcionPanel();
 		contentPane.add(descripcionPanel, "DESCRIPCION");
-		
+
 		combatePanel = new CombatePanel();
 		contentPane.add(combatePanel, "COMBATE");
-		
+
 		seleccionPanel = new SeleccionPanel();
 		contentPane.add(seleccionPanel, "SELECCION");
-		
-		cambiarPantalla("SELECCION");
 
 		rutaPanel = new RutaPanel();
 		contentPane.add(rutaPanel, "RUTA");
 
+		cambiarPantalla("LOGIN");
+
+	}
+	
+	
+	
+	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public void cambiarPantalla(String nombre) {
 		CardLayout layout = (CardLayout) contentPane.getLayout();
 		layout.show(contentPane, nombre);
+	}
+
+	public MenuPanel getMenuPanel() {
+		return menuPanel;
+	}
+
+	public void setMenuPanel(MenuPanel menuPanel) {
+		this.menuPanel = menuPanel;
+	}
+
+	public LoginPanel getLoginPanel() {
+		return loginPanel;
+	}
+
+	public void setLoginPanel(LoginPanel loginPanel) {
+		this.loginPanel = loginPanel;
+	}
+
+	public RegistroPanel getRegistroPanel() {
+		return registroPanel;
+	}
+
+	public void setRegistroPanel(RegistroPanel registroPanel) {
+		this.registroPanel = registroPanel;
+	}
+
+	public DescripcionPanel getDescripcionPanel() {
+		return descripcionPanel;
+	}
+
+	public void setDescripcionPanel(DescripcionPanel descripcionPanel) {
+		this.descripcionPanel = descripcionPanel;
+	}
+
+	public CombatePanel getCombatePanel() {
+		return combatePanel;
+	}
+
+	public void setCombatePanel(CombatePanel combatePanel) {
+		this.combatePanel = combatePanel;
+	}
+
+	public SeleccionPanel getSeleccionPanel() {
+		return seleccionPanel;
+	}
+
+	public void setSeleccionPanel(SeleccionPanel seleccionPanel) {
+		this.seleccionPanel = seleccionPanel;
+	}
+
+	public RutaPanel getRutaPanel() {
+		return rutaPanel;
+	}
+
+	public void setRutaPanel(RutaPanel rutaPanel) {
+		this.rutaPanel = rutaPanel;
 	}
 
 }

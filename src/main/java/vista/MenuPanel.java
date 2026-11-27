@@ -3,6 +3,7 @@ package vista;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -23,6 +24,7 @@ public class MenuPanel extends JPanel {
 	private JButton btnAyuda;
 	private JLabel lblLogo;
 	private JLabel lblFondo;
+	private JLabel lblUsuario;
 
 	public MenuPanel() {
 		setSize(EstilosVista.ANCHO_VENTANA, EstilosVista.ALTO_VENTANA);
@@ -37,8 +39,7 @@ public class MenuPanel extends JPanel {
 		btnHistoria.setBounds(X_BOTONES, Y_MODOS, ancho, altoGrande);
 		add(btnHistoria);
 
-		btnEnfrentamiento = crearBoton("ENFRENTAMIENTO", EstilosVista.AMARILLO,
-				EstilosVista.FUENTE_BOTON_GRANDE);
+		btnEnfrentamiento = crearBoton("ENFRENTAMIENTO", EstilosVista.AMARILLO, EstilosVista.FUENTE_BOTON_GRANDE);
 		btnEnfrentamiento.setBounds(X_BOTONES, Y_MODOS + altoGrande + separacion, ancho, altoGrande);
 		add(btnEnfrentamiento);
 
@@ -47,8 +48,7 @@ public class MenuPanel extends JPanel {
 		btnPersonajes.setBounds(X_BOTONES, Y_OPCIONES, ancho, altoPequeno);
 		add(btnPersonajes);
 
-		btnAyuda = crearBoton("Información o Ayuda", EstilosVista.MELOCOTON,
-				EstilosVista.FUENTE_BOTON_PEQUENO);
+		btnAyuda = crearBoton("Información o Ayuda", EstilosVista.MELOCOTON, EstilosVista.FUENTE_BOTON_PEQUENO);
 		btnAyuda.setBounds(X_BOTONES, Y_OPCIONES + altoPequeno + separacion, ancho, altoPequeno);
 		add(btnAyuda);
 
@@ -57,7 +57,18 @@ public class MenuPanel extends JPanel {
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogo.setBounds(780, 228, 700, 264);
 		add(lblLogo);
-		
+
+		lblUsuario = new JLabel("", SwingConstants.CENTER);
+		lblUsuario.setOpaque(true);
+		lblUsuario.setBackground(EstilosVista.NEGRO);
+		lblUsuario.setForeground(EstilosVista.AMARILLO);
+		lblUsuario.setFont(EstilosVista.FUENTE_BOTON_PEQUENO);
+		lblUsuario
+				.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(EstilosVista.AMARILLO, 3),
+						BorderFactory.createEmptyBorder(5, 15, 5, 15)));
+		lblUsuario.setBounds(1080, 40, 380, 55);
+		add(lblUsuario);
+
 		lblFondo = new JLabel();
 		lblFondo.setIcon(new ImageIcon(getClass().getResource("/gif/fondo_ryu_animado.gif")));
 		lblFondo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -73,6 +84,42 @@ public class MenuPanel extends JPanel {
 		boton.setHorizontalAlignment(SwingConstants.LEFT);
 		boton.putClientProperty("FlatLaf.style", EstilosVista.ESTILO_BOTON);
 		return boton;
+	}
+
+	public JLabel getLblUsuario() {
+		return lblUsuario;
+	}
+
+	public JButton getBtnHistoria() {
+		return btnHistoria;
+	}
+
+	public void setBtnHistoria(JButton btnHistoria) {
+		this.btnHistoria = btnHistoria;
+	}
+
+	public JButton getBtnEnfrentamiento() {
+		return btnEnfrentamiento;
+	}
+
+	public void setBtnEnfrentamiento(JButton btnEnfrentamiento) {
+		this.btnEnfrentamiento = btnEnfrentamiento;
+	}
+
+	public JButton getBtnPersonajes() {
+		return btnPersonajes;
+	}
+
+	public void setBtnPersonajes(JButton btnPersonajes) {
+		this.btnPersonajes = btnPersonajes;
+	}
+
+	public JButton getBtnAyuda() {
+		return btnAyuda;
+	}
+
+	public void setBtnAyuda(JButton btnAyuda) {
+		this.btnAyuda = btnAyuda;
 	}
 
 }
