@@ -47,3 +47,13 @@ CREATE TABLE IF NOT EXISTS DESBLOQUEO (
 ) ENGINE = InnoDB;
 
 CREATE INDEX IX_DESBLOQUEO_USUARIO ON DESBLOQUEO (Id_Usuario);
+
+CREATE TRIGGER insertarDesbloqueados
+AFTER INSERT ON USUARIO 
+FOR EACH ROW
+INSERT INTO DESBLOQUEO (Id_Luchador, Id_Usuario) VALUES
+		(1, NEW.Id_Usuario),
+        (2, NEW.Id_Usuario),
+        (3, NEW.Id_Usuario),
+        (4, NEW.Id_Usuario),
+        (5, NEW.Id_Usuario);

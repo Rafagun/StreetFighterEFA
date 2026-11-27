@@ -3,6 +3,8 @@ package mainApp;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 import basededatos.BDDConnection;
+import controladores.LoginControlador;
+import controladores.RegistroControlador;
 import vista.VentanaPrincipal;
 
 public class PrincipalApp {
@@ -12,7 +14,8 @@ public class PrincipalApp {
 		try {
 			VentanaPrincipal frame = new VentanaPrincipal();
 			frame.setVisible(true);
-			frame.cambiarPantalla("ESTADISTICAS");
+			LoginControlador loginControlador = new LoginControlador(frame);
+			RegistroControlador registroControlador = new RegistroControlador(frame);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
